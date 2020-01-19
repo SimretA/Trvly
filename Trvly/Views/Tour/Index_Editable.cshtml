@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Trvly.Models.Tour>
+
+@{
+    ViewBag.Title = "Upcoming Tours";
+}
+
+<h2>Tours</h2>
+
+<p style="margin-left:10%;">
+    @Html.ActionLink("Post A New Journey", "New",new { @class= "btn btn-primary" })
+</p>
+
+<div class="row">
+@foreach (var item in Model)
+{
+     <div class="col-6" style="font-family: 'Raleway', sans-serif; height:10%; width:50%;border:groove 1px gray;padding:3%;margin-left:20%;margin-bottom:2%;
+         border-radius:23px 23px 23px; box-shadow:3px 5px #888888;">
+        <div class="card">
+
+            <img class="card-img-top" src="~/Content/images/africa-animal-ape-38280.jpg" alt="Card image cap" style="height:250px; width:250px; ">
+            <div class="card-body" >
+                <h4 class="card-title glyphicon-bold" style="font-weight:bold;">@Html.DisplayFor(modelItem => item.Title)</h4>
+                
+                <p class="card-text">
+                    @Html.DisplayFor(modelItem => item.Description)</p>
+                <div> @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-primary" })
+                 @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })</div>
+            </div>
+        </div>
+    </div>
+
+}
+</div>
+
+@*
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Days)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Days)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+
+    </table>
+*@

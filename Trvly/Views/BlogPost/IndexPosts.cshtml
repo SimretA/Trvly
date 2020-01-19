@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Trvly.Models.BlogPost>
+
+@{
+    ViewBag.Title = "IndexPosts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Blogs</h2>
+
+
+
+@foreach (var item in Model) {
+    <hr />
+    <div>
+        
+        <h2>
+            @Html.ActionLink(@Html.DisplayFor(modelItem => item.Title).ToString(), "Read_Only", new { id = item.id })
+
+
+        </h2>
+        <h5>
+            @Html.DisplayFor(modelItem => item.PostedBy)
+        </h5>
+        <h4>
+            @Html.DisplayFor(modelItem => item.Body)
+        </h4>
+    </div>
+}
+

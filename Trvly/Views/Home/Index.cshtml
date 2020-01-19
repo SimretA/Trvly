@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<img class="mySlides" src="~/Content/images/adult-africa-backlit-434566.jpg" style="width:1080px;height:400px;" alt="picture 1">
+<img class="mySlides" src="~/Content/images/ethiopia-visa-info.jpg" style="width:1080px;height:400px;" alt="picture 2">
+
+<img class="mySlides" src="~/Content/images/sun.jpg" style="width:1080px;height:400px" alt="picture 3">
+
+
+<script>
+
+    var slideIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) { slideIndex = 1 }
+        x[slideIndex - 1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>24 hours in Addis Ababa, Ethiopia</h2>
+        <p >
+            Follow the locals’ lead and kick off your day at one of the capital’s excellent coffee shops,
+             putting some pep in your step with a caffè macchiato or two.
+        </p>
+        <p> @Html.ActionLink("Dive In", "Addids24Hours", "Home",new { @class="btn btn-default"})</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Start Your Travel Blog</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p>@Html.ActionLink("Dive In", "RedirectArticle", "Home", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Upcoming journeys</h2>
+        <p>Check out the most breath taking spots accross Ethiopian throught affordable group travels.</p>
+        <p>@Html.ActionLink("See What's new?", "RedirectArticle", "Home", new { @class = "btn btn-default" })</p>
+    </div>
+</div>

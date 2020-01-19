@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Trvly.Models.BlogPost>
+
+@{
+    ViewBag.Title = "UnApprovedPosts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pending Posts</h2>
+
+
+@foreach(var item in Model)
+{
+    <div>
+        <div>@Html.ActionLink(@Html.DisplayFor(modelItem => item.Title).ToString(),"Read",new { id=item.id})</div>
+        <div>@Html.DisplayFor(modelItem => item.Body) </div>
+    </div>
+    <hr />
+}
+
+
+
+
+
